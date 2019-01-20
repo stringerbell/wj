@@ -26,6 +26,11 @@
   grid-area: main;
 }
 
+.parallax {
+  img {
+    @include blur(3px, !important)
+  }
+}
 .callout {
   color: #ffffff;
   font-size: 1.2em;
@@ -33,6 +38,7 @@
   padding: 1em;
   font-weight: 800;
   align-self: center;
+  text-shadow: black 0 0 2px;
   @include md {
     font-size: 1.6em;
   }

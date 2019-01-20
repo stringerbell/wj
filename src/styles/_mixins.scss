@@ -1,4 +1,4 @@
-@import "breakpoints";
+@import 'breakpoints';
 
 // Small devices
 @mixin sm {
@@ -33,4 +33,11 @@
   @media (min-width: $screen+'px') {
     @content;
   }
+}
+
+@mixin blur($radius, $important: '') {
+  -webkit-filter: blur($radius) $important; /* Chrome, Safari */
+  -ms-filter: blur($radius) $important; /* IE12? */
+  filter: blur($radius) $important;
+  filter: progid:DXImageTransform.Microsoft.Blur(Strength=$radius) $important; /* IE9 */
 }
