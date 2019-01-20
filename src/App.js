@@ -30,7 +30,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="grid-container">
-          <div className="header">Probably Jesus</div>
+          <div className="header">Things Jesus Probably Said</div>
           <div className="main">
             <div>
               {quotes.map((quote, index) => (
