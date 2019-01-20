@@ -1,0 +1,57 @@
+@import 'styles/mixins';
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 10fr 10fr 1fr;
+  grid-template-rows: minmax(1fr, 250px) 12fr minmax(1fr, 250px);
+  grid-template-areas: 'header header header header' 'left main   main   right' 'footer footer footer footer';
+}
+
+%dark-block {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 1em;
+  font-size: 2em;
+  line-height: 1em;
+  letter-spacing: -2px;
+  font-weight: 700;
+}
+.header {
+  grid-area: header;
+  @extend %dark-block;
+}
+
+.main {
+  grid-area: main;
+}
+
+.callout {
+  color: #ffffff;
+  font-size: 1.2em;
+  text-align: end;
+  padding: 1em;
+  font-weight: 800;
+  align-self: center;
+  @include md {
+    font-size: 1.6em;
+  }
+  @include lg {
+    font-size: 3em;
+  }
+  .attribution {
+    font-size: 0.8em;
+    font-style: italic;
+    align-content: end;
+    font-weight: 200;
+  }
+}
+.quote-container {
+  min-height: 220px;
+  display: grid;
+}
+
+.footer {
+  grid-area: footer;
+  @extend %dark-block;
+}

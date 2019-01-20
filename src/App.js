@@ -1,25 +1,39 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { Parallax } from 'react-parallax';
+import { quotes, defaultAttribution } from './data/quotes';
+
+const styles = {
+  fontFamily: 'sans-serif',
+  textAlign: 'center'
+};
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div className="grid-container">
+          <div className="header">Probably Jesus</div>
+          <div className="main">
+            <div style={styles}>
+              {quotes.map((quote,index) => (
+                <div key={index}>
+                  <Parallax bgImage={quote.image} strength={500}>
+                    <div className={'quote-container'}>
+                      <p className={'callout'}>
+                        "{quote.text}"
+                        <br />
+                        <span className={'attribution'}>– {quote.attribution || defaultAttribution}</span>
+                      </p>
+                    </div>
+                  </Parallax>
+                  <p />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="footer">&nbsp;</div>
+        </div>
       </div>
     );
   }
