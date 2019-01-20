@@ -3,11 +3,6 @@ import './App.scss';
 import { Parallax } from 'react-parallax';
 import { quotes, defaultAttribution } from './data/quotes';
 
-const styles = {
-  fontFamily: 'sans-serif',
-  textAlign: 'center'
-};
-
 class App extends Component {
   render() {
     return (
@@ -15,7 +10,7 @@ class App extends Component {
         <div className="grid-container">
           <div className="header">Probably Jesus</div>
           <div className="main">
-            <div style={styles}>
+            <div>
               {quotes.map((quote,index) => (
                 <div key={index}>
                   <Parallax bgImage={quote.image} strength={500}>
