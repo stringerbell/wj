@@ -6,6 +6,10 @@ let quotes = [
   },
   {
     text:
+      "Let the children come to me (Unless they don't have adequate health insurance coverage). Don't stop them! For the Kingdom of Heaven belongs to those who are like these (non-pre-existing condition) children."
+  },
+  {
+    text:
       "Remember two things. Number one, I said, we're going to be saying Christmas again. And, number two, I said I was going to give you a Christmas present."
   },
   {
