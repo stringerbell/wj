@@ -7,13 +7,40 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      images: []
+      images: this.shuffle(this.getLocalImages()),
+      quotes: this.shuffle(quotes)
     };
   }
+  shuffle = images => {
+    // stolen from https://gomakethings.com/how-to-shuffle-an-array-with-vanilla-js/
+    let currentIndex = images.length;
+    let temporaryValue, randomIndex;
+
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      temporaryValue = images[currentIndex];
+      images[currentIndex] = images[randomIndex];
+      images[randomIndex] = temporaryValue;
+    }
+
+    return images;
+  };
+  getLocalImages = () => {
+    return JSON.parse(localStorage.getItem('bg-images')) || [];
+  };
+  setLocalImage = url => {
+    localStorage.setItem(
+      'bg-images',
+      JSON.stringify([...this.getLocalImages(), url])
+    );
+  };
   fetchImage = () => {
     imageFetcher().then(async url => {
       if (!this.state.images.includes(url)) {
         this.setState({ images: [...this.state.images, url] });
+        this.setLocalImage(url);
       }
       if (this.state.images.length !== quotes.length) {
         await sleep(500);
@@ -23,7 +50,9 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.fetchImage();
+    if (this.state.images.length !== quotes.length) {
+      this.fetchImage();
+    }
   }
 
   render() {
@@ -33,7 +62,7 @@ class App extends Component {
           <div className="header">Things Jesus Probably Said</div>
           <div className="main">
             <div>
-              {quotes.map((quote, index) => (
+              {this.state.quotes.map((quote, index) => (
                 <div key={index}>
                   <Parallax
                     className={'parallax'}

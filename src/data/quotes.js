@@ -31,12 +31,46 @@ let quotes = [
     text:
       "He may have had a bad past. Who knows, you know? He may have had some, I think, accusations made. Didn't he have a couple things in his past?",
     attribution: 'Jesus about Judas, probably'
+  },
+  {
+    text:
+      "I am the Way, the Truth, and the Life. No one comes to the Father except through your Primary Care Physician's referral."
   }
 ];
 
 let sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+let categories = [
+  'religion',
+  'jesus',
+  'church',
+  'christianity',
+  'islam',
+  'judaism',
+  "bahá'í faith",
+  'rastafarianism',
+  'samaritanism',
+  'mormonism',
+  'hinduism',
+  'buddhism',
+  'jainism',
+  'sikhism',
+  'unitarian universalism',
+  'raelism',
+  'wicca',
+  'zoroastrianism',
+  'eckankar',
+  'druidry',
+  'yoruba religion',
+  'taoism',
+  'deism',
+  'atheism ',
+  'agnosticism ',
+  'ignosticism'
+].join(',');
 const imageFetcher = () => {
-  return fetch('https://source.unsplash.com/random').then(res => res.url);
+  return fetch(`https://source.unsplash.com/featured/?${categories}`).then(
+    res => res.url
+  );
 };
 
 export { quotes, defaultAttribution, imageFetcher, sleep };
