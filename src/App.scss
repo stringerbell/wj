@@ -20,17 +20,15 @@
 .header {
   grid-area: header;
   @extend %dark-block;
+  @include md {
+    font-size: 2.5em;
+  }
 }
 
 .main {
   grid-area: main;
 }
 
-.parallax {
-  img {
-    @include blur(3px, !important)
-  }
-}
 .callout {
   color: #ffffff;
   font-size: 1.2em;
@@ -39,10 +37,16 @@
   font-weight: 800;
   align-self: center;
   text-shadow: black 0 0 2px;
+  @include sm {
+    font-size: 1.8em;
+  }
   @include md {
-    font-size: 1.6em;
+    font-size: 3em;
   }
   @include lg {
+    font-size: 3em;
+  }
+  @include xl {
     font-size: 3em;
   }
   .attribution {
@@ -60,4 +64,52 @@
 .footer {
   grid-area: footer;
   @extend %dark-block;
+}
+
+/**
+Parallax stuff Taken from https://alligator.io/css/pure-css-parallax/
+ */
+.wrapper {
+  /* The height needs to be set to a fixed value for the effect to work.
+   * 100vh is the full height of the viewport. */
+  height: 100vh;
+  /* The scaling of the images would add a horizontal scrollbar, so disable x overflow. */
+  overflow-x: hidden;
+  /* Enable scrolling on the page. */
+  overflow-y: auto;
+  /* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
+  perspective: 2px;
+}
+
+.section {
+  /* Needed for children to be absolutely positioned relative to the parent. */
+  position: relative;
+  /* The height of the container. Must be set, but it doesn't really matter what the value is. */
+  height: 100vh;
+
+  /* For text formatting. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 0 0 5px #000;
+}
+
+.parallax::after {
+  /* Display and position the pseudo-element */
+  content: " ";
+  position: absolute;
+  top: 10%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /* Move the pseudo-element back away from the camera,
+   * then scale it back up to fill the viewport.
+   * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
+  transform: translateZ(-1px) scale(1.5);
+  background-position: center center;
+  /* Keep the image from overlapping sibling elements. */
+  z-index: -1;
+  margin-bottom: 12em;
 }
