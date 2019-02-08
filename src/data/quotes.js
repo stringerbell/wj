@@ -35,6 +35,11 @@ let quotes = [
   {
     text:
       "I am the Way, the Truth, and the Life. No one comes to the Father except through your Primary Care Physician's referral."
+  },
+  {
+    text:
+    "For whoever does the will of my Father in heaven is my brother and sister and mother.*",
+    exception: "*(Assuming they have the same skin color as me. Which is white.)"
   }
 ];
 

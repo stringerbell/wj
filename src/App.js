@@ -82,6 +82,7 @@ class App extends Component {
                       <span className={'attribution'}>
                         - {quote.attribution || defaultAttribution}
                       </span>
+                      {quote.exception && <><br/><span className="exception">{quote.exception}</span></>}
                     </p>
                   </div>
                   <p />
