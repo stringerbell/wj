@@ -38,8 +38,9 @@ let quotes = [
   },
   {
     text:
-    "For whoever does the will of my Father in heaven is my brother and sister and mother.*",
-    exception: "*(Assuming they have the same skin color as me. Which is white.)"
+      'For whoever does the will of my Father in heaven is my brother and sister and mother.*',
+    exception:
+      '*(Assuming they have the same skin color as me. Which is white.)'
   }
 ];
 
@@ -51,7 +52,8 @@ let categories = [
   'christianity',
   'islam',
   'judaism',
-  "bahá'í faith",
+  "bahá'í",
+  'faith',
   'rastafarianism',
   'samaritanism',
   'mormonism',
@@ -59,17 +61,19 @@ let categories = [
   'buddhism',
   'jainism',
   'sikhism',
-  'unitarian universalism',
+  'unitarian',
+  'universalism',
   'raelism',
   'wicca',
   'zoroastrianism',
   'eckankar',
   'druidry',
-  'yoruba religion',
+  'yoruba',
+  'religion',
   'taoism',
   'deism',
-  'atheism ',
-  'agnosticism ',
+  'atheism',
+  'agnosticism',
   'ignosticism'
 ].join(',');
 const imageFetcher = () => {
