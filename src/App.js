@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import './App.scss';
-import { Parallax } from 'react-parallax';
 import { quotes, defaultAttribution, imageFetcher, sleep } from './data/quotes';
+import styled from 'styled-components';
+
+const Parallax = styled.section`
+  ::after {
+    background-image: url(${props => props.img});
+    background-repeat: no-repeat;
+  }
+`;
 
 class App extends Component {
   constructor(props) {
@@ -61,28 +68,26 @@ class App extends Component {
         <div className="grid-container">
           <div className="header">Things Jesus Probably Said</div>
           <div className="main">
-            <div>
+            <main className="wrapper">
               {this.state.quotes.map((quote, index) => (
-                <div key={index}>
-                  <Parallax
-                    className={'parallax'}
-                    bgImage={this.state.images[index] || ''}
-                    strength={500}
-                  >
-                    <div className={'quote-container'}>
-                      <p className={'callout'}>
-                        "{quote.text}"
-                        <br />
-                        <span className={'attribution'}>
-                          – {quote.attribution || defaultAttribution}
-                        </span>
-                      </p>
-                    </div>
-                  </Parallax>
+                <Parallax
+                  key={index}
+                  className="section parallax"
+                  img={this.state.images[index]}
+                >
+                  <div className={'quote-container'}>
+                    <p className={'callout'}>
+                      "{quote.text}"
+                      <br />
+                      <span className={'attribution'}>
+                        - {quote.attribution || defaultAttribution}
+                      </span>
+                    </p>
+                  </div>
                   <p />
-                </div>
+                </Parallax>
               ))}
-            </div>
+            </main>
           </div>
           <div className="footer">&nbsp;</div>
         </div>
