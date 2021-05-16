@@ -1,13 +1,13 @@
 {
-  "main.css": "/probably-jesus/static/css/main.44c42285.chunk.css",
-  "main.js": "/probably-jesus/static/js/main.c858ac1b.chunk.js",
-  "main.js.map": "/probably-jesus/static/js/main.c858ac1b.chunk.js.map",
-  "static/js/1.3e038f39.chunk.js": "/probably-jesus/static/js/1.3e038f39.chunk.js",
-  "static/js/1.3e038f39.chunk.js.map": "/probably-jesus/static/js/1.3e038f39.chunk.js.map",
-  "runtime~main.js": "/probably-jesus/static/js/runtime~main.fc560292.js",
-  "runtime~main.js.map": "/probably-jesus/static/js/runtime~main.fc560292.js.map",
-  "static/css/main.44c42285.chunk.css.map": "/probably-jesus/static/css/main.44c42285.chunk.css.map",
-  "index.html": "/probably-jesus/index.html",
-  "precache-manifest.9e0642a50dee67a486d6c524275ce00c.js": "/probably-jesus/precache-manifest.9e0642a50dee67a486d6c524275ce00c.js",
-  "service-worker.js": "/probably-jesus/service-worker.js"
+  "main.css": "/wj/static/css/main.44c42285.chunk.css",
+  "main.js": "/wj/static/js/main.ac3578f8.chunk.js",
+  "main.js.map": "/wj/static/js/main.ac3578f8.chunk.js.map",
+  "static/js/1.fe348341.chunk.js": "/wj/static/js/1.fe348341.chunk.js",
+  "static/js/1.fe348341.chunk.js.map": "/wj/static/js/1.fe348341.chunk.js.map",
+  "runtime~main.js": "/wj/static/js/runtime~main.adb5e9d0.js",
+  "runtime~main.js.map": "/wj/static/js/runtime~main.adb5e9d0.js.map",
+  "static/css/main.44c42285.chunk.css.map": "/wj/static/css/main.44c42285.chunk.css.map",
+  "index.html": "/wj/index.html",
+  "precache-manifest.19e688fb37137c6877d4cf3a9d95ebf7.js": "/wj/precache-manifest.19e688fb37137c6877d4cf3a9d95ebf7.js",
+  "service-worker.js": "/wj/service-worker.js"
 }
