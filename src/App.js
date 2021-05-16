@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.scss';
+import './App.css';
 import { quotes, defaultAttribution, imageFetcher, sleep } from './data/quotes';
 import styled from 'styled-components';
 
