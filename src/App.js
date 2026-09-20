@@ -53,6 +53,8 @@ class App extends Component {
         await sleep(500);
         this.fetchImage();
       }
+    }).catch(() => {
+      // image host is down; quotes still render without backgrounds
     });
   };
 

@@ -45,41 +45,14 @@ let quotes = [
 ];
 
 let sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-let categories = [
-  'religion',
-  'jesus',
-  'church',
-  'christianity',
-  'islam',
-  'judaism',
-  "bahá'í",
-  'faith',
-  'rastafarianism',
-  'samaritanism',
-  'mormonism',
-  'hinduism',
-  'buddhism',
-  'jainism',
-  'sikhism',
-  'unitarian',
-  'universalism',
-  'raelism',
-  'wicca',
-  'zoroastrianism',
-  'eckankar',
-  'druidry',
-  'yoruba',
-  'religion',
-  'taoism',
-  'deism',
-  'atheism',
-  'agnosticism',
-  'ignosticism'
-].join(',');
+// source.unsplash.com was shut down; picsum redirects to a stable image url
 const imageFetcher = () => {
-  return fetch(`https://source.unsplash.com/featured/?${categories}`).then(
-    res => res.url
-  );
+  return fetch('https://picsum.photos/1920/1080').then(res => {
+    if (!res.ok) {
+      throw new Error(`image fetch failed: ${res.status}`);
+    }
+    return res.url;
+  });
 };
 
 export { quotes, defaultAttribution, imageFetcher, sleep };
