@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { quotes, defaultAttribution, imageFetcher, sleep } from './data/quotes';
+import { quotes, defaultAttribution, images } from './data/quotes';
 import styled from 'styled-components';
 
 const Parallax = styled.section`
@@ -14,8 +14,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      images: this.shuffle(this.getLocalImages()),
-      quotes: this.shuffle(quotes)
+      images: this.shuffle([...images]),
+      quotes: this.shuffle([...quotes])
     };
   }
   shuffle = images => {
@@ -34,36 +34,6 @@ class App extends Component {
 
     return images;
   };
-  getLocalImages = () => {
-    return JSON.parse(localStorage.getItem('bg-images')) || [];
-  };
-  setLocalImage = url => {
-    localStorage.setItem(
-      'bg-images',
-      JSON.stringify([...this.getLocalImages(), url])
-    );
-  };
-  fetchImage = () => {
-    imageFetcher().then(async url => {
-      if (!this.state.images.includes(url)) {
-        this.setState({ images: [...this.state.images, url] });
-        this.setLocalImage(url);
-      }
-      if (this.state.images.length !== quotes.length) {
-        await sleep(500);
-        this.fetchImage();
-      }
-    }).catch(() => {
-      // image host is down; quotes still render without backgrounds
-    });
-  };
-
-  componentDidMount() {
-    if (this.state.images.length !== quotes.length) {
-      this.fetchImage();
-    }
-  }
-
   render() {
     return (
       <div className="App">
@@ -75,7 +45,7 @@ class App extends Component {
                 <Parallax
                   key={index}
                   className="section parallax"
-                  img={this.state.images[index]}
+                  img={this.state.images[index % this.state.images.length]}
                 >
                   <div className={'quote-container'}>
                     <p className={'callout'}>

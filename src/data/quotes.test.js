@@ -1,21 +1,15 @@
-import { imageFetcher } from './quotes';
+import fs from 'fs';
+import path from 'path';
+import { quotes, images } from './quotes';
 
-afterEach(() => {
-  delete global.fetch;
+it('has a static background for every quote', () => {
+  expect(images.length).toBeGreaterThanOrEqual(quotes.length);
 });
 
-it('resolves to the redirected image url', async () => {
-  const url = 'https://fastly.picsum.photos/id/1/1920/1080.jpg';
-  global.fetch = jest.fn(() => Promise.resolve({ ok: true, url }));
-
-  await expect(imageFetcher()).resolves.toBe(url);
-  expect(global.fetch.mock.calls[0][0]).not.toMatch(/unsplash/);
-});
-
-it('rejects instead of returning the url of an error page', async () => {
-  global.fetch = jest.fn(() =>
-    Promise.resolve({ ok: false, status: 503, url: 'https://example.com/503' })
-  );
-
-  await expect(imageFetcher()).rejects.toThrow('503');
+it('only references image files that exist in public/', () => {
+  images.forEach(image => {
+    expect(image).not.toMatch(/^https?:/);
+    const file = path.join(__dirname, '../../public', image);
+    expect(fs.existsSync(file)).toBe(true);
+  });
 });

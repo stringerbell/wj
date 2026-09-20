@@ -44,15 +44,10 @@ let quotes = [
   }
 ];
 
-let sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-// source.unsplash.com was shut down; picsum redirects to a stable image url
-const imageFetcher = () => {
-  return fetch('https://picsum.photos/1920/1080').then(res => {
-    if (!res.ok) {
-      throw new Error(`image fetch failed: ${res.status}`);
-    }
-    return res.url;
-  });
-};
+// static backgrounds in public/images, so we don't depend on an image host
+const images = Array.from(
+  { length: 10 },
+  (_, i) => `${process.env.PUBLIC_URL}/images/bg-${i + 1}.jpg`
+);
 
-export { quotes, defaultAttribution, imageFetcher, sleep };
+export { quotes, defaultAttribution, images };
