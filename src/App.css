@@ -97,6 +97,9 @@ Parallax stuff Taken from https://alligator.io/css/pure-css-parallax/
   position: relative;
   /* The height of the container. Must be set, but it doesn't really matter what the value is. */
   height: 100vh;
+  /* Perspective only reaches direct children of .wrapper. Without this the section
+   * flattens its ::after, translateZ does nothing, and the parallax is lost. */
+  transform-style: preserve-3d;
   /* For text formatting. */
   display: flex;
   align-items: center;
